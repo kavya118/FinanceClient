@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"/>
+</head>
+<body>
+    <div class="container">
+      <div th:if="${not #lists.isEmpty(users)}">
+          <h1>Users List</h1>
+        <table class="highlight">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Contact Number</th>
+                <th>Email ID</th>
+            </tr>
+            </thead>
+                <tbody>
+                    <tr th:each="user: ${users}">
+                        <td th:text="${user.id}"></td>
+                        <td th:text="${user.name}"></td>
+                        <td th:text="${user.contactnumber}"></td>
+                        <td th:text="${user.email_id}"></td>
+                        <td><a th:href="${'/user/' + user.id}">Details</a></td>
+                    </tr>
+                </tbody>
+        </table>
+      </div>
+    </div>
+</body>
+</html>
